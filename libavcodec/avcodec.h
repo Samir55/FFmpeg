@@ -3353,6 +3353,9 @@ typedef struct AVCodecContext {
      * - encoding: unused
      */
     int discard_damaged_percentage;
+
+    int sr_enabled;
+    void (*sr_ptr)(AVFrame*);
 } AVCodecContext;
 
 #if FF_API_CODEC_GET_SET

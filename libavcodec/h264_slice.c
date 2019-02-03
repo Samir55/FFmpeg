@@ -2866,5 +2866,10 @@ int ff_h264_execute_decode_slices(H264Context *h)
 
 finish:
     h->nb_slice_ctx_queued = 0;
+
+    if (avctx->sr_enabled && avctx->sr_ptr) {
+        avctx->sr_ptr(h->cur_pic_ptr->f);
+    }
+
     return ret;
 }
